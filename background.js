@@ -9,11 +9,18 @@ chrome.browserAction.onClicked.addListener(function (tab) {
     });
 });
 
-// This block is new!
-chrome.runtime.onMessage.addListener(
-    function (request, sender, sendResponse) {
-        if (request.message === "open_new_tab") {
-            chrome.tabs.create({"url": request.url});
-        }
-    }
-);
+chrome.runtime.onMessage.addListener(send);
+
+function send(message, sender, sendResponse) {
+    if (!sender.tab)
+        return;
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:4243', true);
+    xhr.setRequestHeader('Content-type', 'text/plain');
+    xhr.send(message);
+    window.setTimeout(reload, 500);
+}
+
+function reload() {
+    window.location.reload();
+}
