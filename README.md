@@ -7,3 +7,6 @@ Competitive programming browser Tool box extension
 
 # What it does?
 Logs first found URL into browser's console.
+
+# TODO
+- [ ] Write [unit test case](https://stackoverflow.com/questions/2869827/how-to-test-chrome-extensions)
