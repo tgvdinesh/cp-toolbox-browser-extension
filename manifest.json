@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "An extension",
+  "name": "CP Parser",
   "version": "0.1",
   "background": {
     "scripts": [
@@ -36,6 +36,29 @@
         "content.js"
       ]
     }
+  ],
+  "permissions": [
+    "tabs",
+    "https://*.contest.yandex.ru/*",
+    "https://*.contest.yandex.com/*",
+    "https://*.contest2.yandex.ru/*",
+    "https://*.contest2.yandex.com/*",
+    "http://codeforces.ru/*",
+    "http://codeforces.com/*",
+    "https://hackerrank.com/*",
+    "https://www.hackerrank.com/*",
+    "https://www.facebook.com/hackercup/*",
+    "http://usaco.org/*",
+    "http://www.usaco.org/*",
+    "https://code.google.com/codejam/contest/*",
+    "http://contest.bayan.ir/*",
+    "https://*.kattis.com/problems/*",
+    "https://*.kattis.com/contests/*",
+    "http://www.codechef.com/*",
+    "https://www.codechef.com/*",
+    "https://www.hackerearth.com/*",
+    "http://*.contest.atcoder.jp/*",
+    "https://csacademy.com/*"
   ],
   "browser_action": {
     "default_icon": "icon.png"
