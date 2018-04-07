@@ -24,10 +24,16 @@ function sendAsAPI(message) {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://localhost:4243', true);
     xhr.setRequestHeader('Content-type', 'text/plain');
-    xhr.send(message);
+    testData.htmlBody = message;
+    xhr.send(JSON.stringify(testData));
     window.setTimeout(reload, 500);
 }
 
 function reload() {
     window.location.reload();
 }
+
+var testData = {
+    url: "",
+    htmlBody: ""
+};
