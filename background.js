@@ -7,8 +7,8 @@
 chrome.browserAction.onClicked.addListener(function (tab) {
     // Send a message to the active tab
     chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-        var activeTab = tabs[0];
-        chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action"});
+        payLoad.url = tabs[0].url;
+        chrome.tabs.sendMessage(tabs[0].id, {"message": "clicked_browser_action"});
     });
 });
 
@@ -17,15 +17,15 @@ chrome.runtime.onMessage.addListener(send);
 function send(message, sender, sendResponse) {
     if (!sender.tab)
         return;
-    sendAsAPI(message);
+    payLoad.htmlBody = message;
+    sendAsAPI(payLoad);
 }
 
 function sendAsAPI(message) {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:4243', true);
+    xhr.open('POST', URL, true);
     xhr.setRequestHeader('Content-type', 'text/plain');
-    testData.htmlBody = message;
-    xhr.send(JSON.stringify(testData));
+    xhr.send(JSON.stringify(message));
     window.setTimeout(reload, 500);
 }
 
@@ -33,7 +33,8 @@ function reload() {
     window.location.reload();
 }
 
-var testData = {
-    url: "",
-    htmlBody: ""
+const URL = "http://127.0.0.1:4243";
+var payLoad = {
+    "url": "https://www.hackerrank.com/challenges/30-bitwise-and/problem",
+    "htmlBody": "<html><head></head><body></body></html>"
 };
