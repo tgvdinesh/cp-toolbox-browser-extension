@@ -7,6 +7,7 @@ Sends the DOM content to port listener 4243
 
 
 # Roadmap
+- [ ] Escape HTML string
 - [ ] [Publish Chrome plugin](https://developer.chrome.com/webstore/publish)
 - [ ] Write [unit test case](https://stackoverflow.com/questions/2869827/how-to-test-chrome-extensions)
 - [ ] Enable extension only on CP sites[1](https://stackoverflow.com/questions/10396634/chrome-extension-run-for-a-specific-page)
